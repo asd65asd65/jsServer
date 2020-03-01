@@ -70,7 +70,11 @@ app.get('*', function(req, res){
         for (f in files) {
             fname = files[f];
             console.log("file:"+fname);
-            filePath = req.url+"/"+fname;
+			if (req.url=="/"){
+				filePath = req.url+fname;
+			}else{
+				filePath = req.url+"/"+fname;
+			}
             html += "<li><a href='"+filePath+"'>"+filePath+"</a></li>\n";
         }
         html += "<body></html>"
